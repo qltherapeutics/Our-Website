@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import SectionHeading from "../components/SectionHeading";
-
+const showCertifications = false;
 
 // ✅ Counter Component (OUTSIDE main component)
 const Counter = ({ value, suffix }) => {
@@ -297,48 +297,51 @@ const Capabilities = () => {
   </div>
 
 </section>
-<section className="section-padding bg-slate-50 text-center">
-  <div className="max-w-7xl mx-auto px-6">
 
-    <SectionHeading
-      subtitle="Quality Standards"
-      title="Global Certifications"
-    />
 
-    {/* ✅ SCROLL CONTAINER */}
-    <div className="mt-12 overflow-x-auto">
+    {/* ✅ CONDITIONAL SECTION */}
+    {showCertifications && (
+      <section className="section-padding bg-slate-50 text-center">
+        <div className="max-w-7xl mx-auto px-6">
 
-      {/* ✅ CENTER ALIGN FIX */}
-      <div className="flex items-center justify-center gap-10 min-w-max mx-auto">
-
-        {[
-          { src: "/who.png", alt: "WHO GMP" },
-          { src: "/usfda.png", alt: "US FDA" },
-          { src: "/halal.png", alt: "Halal" },
-          { src: "/kosher.png", alt: "Kosher" },
-          { src: "/haccp.png", alt: "HACCP" },
-          { src: "/iso9001.png", alt: "ISO 9001" },
-          { src: "/iso22000.png", alt: "ISO 22000" },
-          { src: "/fssai.png", alt: "fssai" },
-          { src: "/ayush.png", alt: "ayush" }
-        ].map((logo, idx) => (
-
-          <img
-            key={idx}
-            src={logo.src}
-            alt={logo.alt}
-            className="h-12 sm:h-14 md:h-16 lg:h-20 object-contain flex-shrink-0"
+          <SectionHeading
+            subtitle="Quality Standards"
+            title="Global Certifications"
           />
 
-        ))}
+          {/* SCROLL CONTAINER */}
+          <div className="mt-12 overflow-x-auto">
 
-      </div>
+            <div className="flex items-center justify-center gap-10 min-w-max mx-auto">
 
-    </div>
+              {[
+                { src: "/who.png", alt: "WHO GMP" },
+                { src: "/usfda.png", alt: "US FDA" },
+                { src: "/halal.png", alt: "Halal" },
+                { src: "/kosher.png", alt: "Kosher" },
+                { src: "/haccp.png", alt: "HACCP" },
+                { src: "/iso9001.png", alt: "ISO 9001" },
+                { src: "/iso22000.png", alt: "ISO 22000" },
+                { src: "/fssai.png", alt: "FSSAI" },
+                { src: "/ayush.png", alt: "AYUSH" }
+              ].map((logo, idx) => (
 
-  </div>
-</section>
+                <img
+                  key={idx}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-12 sm:h-14 md:h-16 lg:h-20 object-contain flex-shrink-0"
+                />
 
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+)} 
 
 {/* MANUFACTURING APPROACH - PREMIUM */}
 <section className="relative min-h-[70vh] lg:h-[90vh] overflow-hidden">
