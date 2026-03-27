@@ -34,7 +34,7 @@ const About = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774484137/about-hero1_vxkark.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dkwtj3zzs/video/upload/v1774593071/about-hero1_ol9udb.mp4" type="video/mp4" />
           </video>
 
           <div className="absolute inset-0 bg-black/65"></div>
@@ -214,7 +214,7 @@ const About = () => {
 
   {/* 🎥 BACKGROUND VIDEO */}
   <video
-    src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774518868/Untitled_design-3_rbsoow.mp4"
+    src="https://res.cloudinary.com/dkwtj3zzs/video/upload/v1774592790/Untitled_design-3_zxwhu4.mp4"
     autoPlay
     loop
     muted

@@ -345,7 +345,7 @@ const Capabilities = () => {
 
   {/* 🎥 BACKGROUND VIDEO */}
   <video
-    src="https://res.cloudinary.com/dvlydjoke/video/upload/v1774501566/manufacturing_approach_p8k80e.mp4"
+    src="https://res.cloudinary.com/dkwtj3zzs/video/upload/v1774592775/manufacturing_approach_r7rfqq.mp4"
     autoPlay
     loop
     muted
