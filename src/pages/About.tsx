@@ -344,7 +344,7 @@ const About = () => {
           icon: <FileCheck size={26} />
         },
         {
-          title: "Proprietary Nutition",
+          title: "Proprietary Nutrition",
           desc: "Specialised nutritional formulations.",
           icon: <ShieldCheck size={26} />
         }
