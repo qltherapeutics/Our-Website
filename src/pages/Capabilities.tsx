@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import SectionHeading from "../components/SectionHeading";
-const showCertifications = false;
+const showCertifications = true;
 
 // ✅ Counter Component (OUTSIDE main component)
 const Counter = ({ value, suffix }) => {
