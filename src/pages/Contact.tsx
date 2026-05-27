@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Mail } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
@@ -9,6 +9,39 @@ import { useState } from 'react';
 
 const Contact = () => {
 
+  useEffect(() => {
+
+  // ✅ Page Title
+  document.title =
+    "Contact QL Therapeutics | Pharma Manufacturing Inquiry";
+
+  // ✅ Meta Description
+  const metaDescription = document.querySelector(
+    'meta[name="description"]'
+  );
+
+  if (metaDescription) {
+   metaDescription.setAttribute(
+  "content",
+  "Contact QL Therapeutics, a leading nutraceutical and pharmaceutical manufacturing company in Ahmedabad, Gujarat, India offering WHO-GMP certified manufacturing and export solutions."
+);
+  }
+
+  // ✅ Canonical URL
+  let canonicalTag = document.querySelector("link[rel='canonical']");
+
+  if (!canonicalTag) {
+    canonicalTag = document.createElement("link");
+    canonicalTag.setAttribute("rel", "canonical");
+    document.head.appendChild(canonicalTag);
+  }
+
+  canonicalTag.setAttribute(
+    "href",
+    "https://www.qltherapeutics.com/contact"
+  );
+
+}, []);
   
 const [phone, setPhone] = useState("");
   return (
