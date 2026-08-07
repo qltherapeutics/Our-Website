@@ -8,10 +8,10 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const FEATURES = {
-  portfolio: false,
-  global: false,
-  insights: false,
-};
+    portfolio: false,
+    global: false,
+    insights: false,
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -20,19 +20,19 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Leadership', href: '/leadership' },
-  { name: 'Capabilities', href: '/capabilities' },
-  { name: 'Visual Insights', href: '/VisualInsight' },
-  { name: 'WebApps', href: 'https://apps.qltherapeutics.com', external: true },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Leadership', href: '/leadership' },
+    { name: 'Capabilities', href: '/capabilities' },
+    { name: 'Visual Insights', href: '/VisualInsight' },
+    { name: 'WebApps', href: 'https://apps.qltherapeutics.com', external: true },
 
-  FEATURES.portfolio && { name: 'Portfolio', href: '/portfolio' },
-  FEATURES.global && { name: 'Global Presence', href: '/global' },
-  FEATURES.insights && { name: 'Insights', href: '/insights' },
- ].filter(Boolean); // 🔥 IMPORTANT
+    FEATURES.portfolio && { name: 'Portfolio', href: '/portfolio' },
+    FEATURES.global && { name: 'Global Presence', href: '/global' },
+    FEATURES.insights && { name: 'Insights', href: '/insights' },
+  ].filter(Boolean); // IMPORTANT
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 py-2`}>
@@ -47,11 +47,11 @@ const Navbar = () => {
           />
         </Link>
 
-   {/* Desktop Menu */}
+        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             link.external ? (
-              
+              <a
                 key={link.name}
                 href={link.href}
                 target="_blank"
@@ -63,12 +63,12 @@ const Navbar = () => {
                 {link.name}
               </a>
             ) : (
-              <Link 
-                key={link.name} 
-                to={link.href} 
+              <Link
+                key={link.name}
+                to={link.href}
                 className={`text-sm font-medium transition-colors hover:text-accent ${
-                  isActive(link.href) 
-                    ? 'text-accent' 
+                  isActive(link.href)
+                    ? 'text-accent'
                     : isScrolled ? 'text-text' : 'text-primary'
                 }`}
               >
@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="lg:hidden text-primary"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -93,7 +93,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -102,7 +102,7 @@ const Navbar = () => {
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
                 link.external ? (
-                  
+                  <a
                     key={link.name}
                     href={link.href}
                     target="_blank"
@@ -113,9 +113,9 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ) : (
-                  <Link 
-                    key={link.name} 
-                    to={link.href} 
+                  <Link
+                    key={link.name}
+                    to={link.href}
                     className={`text-lg font-medium hover:text-accent ${isActive(link.href) ? 'text-accent' : 'text-text'}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -123,8 +123,8 @@ const Navbar = () => {
                   </Link>
                 )
               ))}
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="btn-primary w-full text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
