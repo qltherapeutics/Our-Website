@@ -12,7 +12,6 @@ const Navbar = () => {
   global: false,
   insights: false,
 };
-  
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -26,12 +25,13 @@ const Navbar = () => {
   { name: 'Leadership', href: '/leadership' },
   { name: 'Capabilities', href: '/capabilities' },
   { name: 'Visual Insights', href: '/VisualInsight' },
+  { name: 'WebApps', href: 'https://apps.qltherapeutics.com', external: true },
 
   FEATURES.portfolio && { name: 'Portfolio', href: '/portfolio' },
   FEATURES.global && { name: 'Global Presence', href: '/global' },
   FEATURES.insights && { name: 'Insights', href: '/insights' },
+ ].filter(Boolean); // 🔥 IMPORTANT
 
-].filter(Boolean); // 🔥 IMPORTANT
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -47,20 +47,34 @@ const Navbar = () => {
           />
         </Link>
 
-  {/* Desktop Menu */}
+   {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.href} 
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isActive(link.href) 
-                  ? 'text-accent' 
-                  : isScrolled ? 'text-text' : 'text-primary'
-              }`}
-            >
-              {link.name}
-            </Link>
+            link.external ? (
+              
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-sm font-medium transition-colors hover:text-accent ${
+                  isScrolled ? 'text-text' : 'text-primary'
+                }`}
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link 
+                key={link.name} 
+                to={link.href} 
+                className={`text-sm font-medium transition-colors hover:text-accent ${
+                  isActive(link.href) 
+                    ? 'text-accent' 
+                    : isScrolled ? 'text-text' : 'text-primary'
+                }`}
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <Link to="/contact" className="btn-primary text-sm px-5 py-2">
             Contact Us
@@ -87,14 +101,27 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  to={link.href} 
-                  className={`text-lg font-medium hover:text-accent ${isActive(link.href) ? 'text-accent' : 'text-text'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
+                link.external ? (
+                  
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium hover:text-accent text-text"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link 
+                    key={link.name} 
+                    to={link.href} 
+                    className={`text-lg font-medium hover:text-accent ${isActive(link.href) ? 'text-accent' : 'text-text'}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
               <Link 
                 to="/contact" 
